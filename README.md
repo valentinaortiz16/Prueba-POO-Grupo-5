@@ -1,64 +1,52 @@
 # Prueba-POO-Grupo-5: Jerarquia de empleados
 
-**Universidad Tecnica de Ambato - FISEI - Ingenieria en Software**
-**Asignatura:** Algoritmos y Logica de Programacion | **Docente:** Ing. Jose Ruben Caiza Caizabuano
-
 ## Integrantes
-- Sandra Jazmin Alulema Chato
-- Anthony Daniel Armas Jaya
-- Joselyn Maribel Guaman Sagñay
-- Valeria Valentina Ortiz Mosquera 
-- Andrés Gabriel Vayas Masache
+
+- Integrante 1
+- Integrante 2
+- Integrante 3
 
 ## Objetivo
-Aplicacion de consola en Java que representa la jerarquia de una empresa mediante clases y
-objetos: registra empleados con ID unico, asigna supervisores, lista subordinados, calcula el
-nivel desde el director raiz y consulta la cadena de supervisores, evitando autosupervision y ciclos.
+
+Representar las relaciones entre empleados y supervisores de una empresa: registrar empleados con identificador unico, asignar supervisores, listar subordinados directos, calcular el nivel de cada empleado desde el director raiz, evitar autosupervision y ciclos, y consultar la cadena de supervisores.
 
 ## Clases y metodos
-| Clase | Responsabilidad | Metodos principales |
-|---|---|---|
-| `Cargo` | Nombre y salario base del puesto (clase adicional) | `getNombre()`, `getSalarioBase()` |
-| `Empleado` | ID, nombre, cargo, departamento y supervisor | `getSupervisor()`, `setSupervisor()` |
-| `Departamento` | Agrupa empleados | `agregarEmpleado()`, `getEmpleados()` |
-| `Organizacion` | Reglas de negocio | `registrarEmpleado()`, `asignarSupervisor()`, `listarSubordinadosDirectos()`, `calcularNivel()`, `consultarCadenaSupervisores()`, `listarEmpleadosPorDepartamento()` |
-| `Main` | Menu con `Scanner`, `switch` y ciclo `do-while` | solo interaccion con el usuario |
+
+Empleado
+- calcularNivel(): cantidad de supervisores hasta la raiz.
+- cadenaSupervisores(): lista de supervisores desde el directo hasta el director raiz.
+- esSubordinadoDe(otro): verifica si otro esta en su cadena.
+- asignarSupervisor(nuevo): valida autosupervision y ciclos, y actualiza ambas listas.
+- ancestroComun(otro): supervisor comun mas cercano, equiparando niveles y subiendo en paralelo (idea tomada de LCA.java).
+
+Departamento
+- agregarEmpleado(empleado), getEmpleados().
+
+Cargo
+- agregarEmpleado(empleado), getEmpleados(): puesto que ocupa cada empleado (Director, Gerente, Analista, etc.).
+
+Organizacion
+- registrarEmpleado(id, nombre, departamento, cargo), designarDirector(id), asignarSupervisor(idEmpleado, idSupervisor), subordinadosDirectos(id), nivel(id), cadenaSupervisores(id), ancestroComun(idA, idB), empleadosPorCargo(cargo), listarEmpleados().
+
+Main
+- Menu por consola. Solo coordina la entrada y salida; los calculos y validaciones estan en las clases anteriores.
 
 ## Compilacion y ejecucion
-```bash
-cd src
-javac *.java
-java Main
-```
-En VS Code: abrir la carpeta, abrir `Main.java` y pulsar **Run**.
 
-## Menu
-```
-1. Registrar departamento      6. Consultar cadena de supervisores
-2. Registrar empleado          7. Listar empleados por departamento
-3. Asignar supervisor          8. Cargar datos de ejemplo (A -> B -> C)
-4. Listar subordinados         9. Listar todos los empleados
-5. Calcular nivel              0. Salir
-```
-Para una prueba rapida: opcion **8** y luego opcion **5** con ID `C` (resultado: nivel 2).
-
-## Validaciones
-ID duplicado, campos vacios, salario <= 0, departamento o empleado inexistente,
-autosupervision, ciclos, supervisor para el director raiz y opciones invalidas.
+    cd src
+    javac -d ../out *.java
+    java -cp ../out Main
 
 ## Capturas
-(Insertar aqui capturas de la ejecucion en VS Code.)
+
+Agregar capturas de pantalla de la ejecucion en la carpeta docs/ y enlazarlas aqui.
 
 ## Distribucion de responsabilidades
-| Integrante | Responsabilidad |
-|---|---|
-| Andres Vayas | `Cargo` |
-| Sandra Alulema | `Empleado` y Diagrama |
-| Joselyn Guaman| `Departamento` |
-| Anthony Armas| `Organizacion`, documentacion |
-| Valentina Ortiz| `Main` |
 
-## Documentacion
-- [Analisis](docs/analisis.md)
-- [Casos de prueba](docs/casos_prueba.md)
-- [Diagrama de clases](docs/diagrama_clases.png)
+- Integrante 1: clase Empleado y validaciones.
+- Integrante 2: clases Departamento, Cargo y Organizacion.
+- Integrante 3: Main, pruebas y documentacion.
+
+## Referencia
+
+Idea del ancestro comun mas cercano inspirada en LCA.java de Steven Halim, Felix Halim y Suhendry Effendy (https://github.com/stevenhalim/cpbook-code).
