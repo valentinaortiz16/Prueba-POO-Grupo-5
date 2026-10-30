@@ -42,6 +42,7 @@ Main
 ## Capturas
 
 <img width="1910" height="991" alt="{4DDB458F-7D6C-4C08-9737-FBA79D58E656}" src="https://github.com/user-attachments/assets/301db001-1db7-4eea-b538-76a49cc77cda" />
+<img width="1916" height="995" alt="{DBF4BCB2-5AF3-4D7D-9356-1766200B84D5}" src="https://github.com/user-attachments/assets/ca998142-67a1-4473-9342-979d3a6332e7" />
 
 
 
