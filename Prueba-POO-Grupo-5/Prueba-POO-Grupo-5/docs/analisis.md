@@ -1,50 +1,34 @@
-# Analisis - Grupo 5: Jerarquia de empleados
+# Analisis
 
-## 1. Problema
-Una empresa necesita representar las relaciones entre empleados y supervisores:
-quien supervisa a quien, cuantos niveles hay desde el director y quienes son los
-subordinados de cada persona, evitando datos inconsistentes (autosupervision y ciclos).
+## Problema
 
-## 2. Entradas
-| Dato | Tipo | Validacion |
-|---|---|---|
-| ID del empleado | Texto | No vacio, unico (se guarda en mayusculas) |
-| Nombre | Texto | No vacio |
-| Cargo | Texto | No vacio |
-| Salario base | Decimal | Mayor que 0 |
-| Departamento | Texto | Debe existir previamente |
-| ID del supervisor | Texto | Debe existir |
-| Opcion del menu | Entero | Numero valido del menu |
+Una empresa requiere representar relaciones entre empleados y supervisores.
 
-## 3. Procesos
-1. **Registrar empleado:** valida datos, crea `Cargo` y `Empleado`, lo agrega a la
-   organizacion y a su departamento. El primer empleado registrado es el director raiz.
-2. **Asignar supervisor:** verifica existencia, que el empleado no sea el director,
-   que no se supervise a si mismo y que no se forme un ciclo.
-3. **Listar subordinados directos:** recorre los empleados y filtra los que tienen
-   como supervisor al empleado consultado.
-4. **Calcular nivel:** sube por la cadena de supervisores contando saltos hasta la raiz
-   (director = 0).
-5. **Consultar cadena de supervisores:** sube por la cadena guardando cada supervisor.
-6. **Listar por departamento:** consulta la lista del departamento.
+## Entradas
 
-**Deteccion de ciclos:** antes de asignar que S supervise a E, se sube por la cadena de S.
-Si aparece E en esa cadena, entonces S ya depende de E y asignarlo crearia un ciclo.
-Esto tambien cubre la autosupervision (S == E).
+- Identificador unico, nombre, departamento y cargo de cada empleado.
+- Identificador del director raiz.
+- Pares (empleado, supervisor) para asignar supervisores.
+- Identificadores para consultas de subordinados, nivel, cadena de supervisores y ancestro comun.
 
-## 4. Salidas
-Mensajes de confirmacion, listas de empleados, el nivel (numero entero), la cadena de
-supervisores y mensajes de error claros ante datos o operaciones invalidas.
+## Procesos
 
-## 5. Decisiones de diseno
-- **Cuatro clases de dominio** (`Cargo`, `Empleado`, `Departamento`, `Organizacion`) mas `Main`.
-  `Cargo` es la clase adicional: separa la informacion del puesto y se relaciona con
-  `Empleado` por composicion.
-- **Main no tiene logica de negocio:** solo lee datos, llama a `Organizacion` y muestra resultados.
-- **Atributos privados** con getters; `Departamento` devuelve copias de su lista para
-  proteger su estado interno.
-- **Validaciones con excepciones** (`IllegalArgumentException` para datos invalidos,
-  `IllegalStateException` para operaciones invalidas); `Main` las captura y muestra el mensaje.
-- **Estructura de datos:** `ArrayList`, suficiente para el tamano del problema.
-- **Empleado sin supervisor asignado:** puede existir, pero su nivel no se calcula
-  hasta conectarlo con la raiz.
+- Registro: se rechaza un identificador repetido, un nombre vacio o un cargo vacio.
+- Asignacion de supervisor: se rechaza si el empleado es el director raiz, si se supervisa a si mismo o si el supervisor propuesto es subordinado del empleado (ciclo). Si el empleado ya tenia supervisor, se retira de la lista del anterior.
+- Subordinados directos: lista almacenada en cada supervisor.
+- Empleados por cargo: lista almacenada en cada Cargo.
+- Nivel: cantidad de saltos de supervisor hasta llegar a quien no tiene supervisor.
+- Cadena de supervisores: recorrido hacia la raiz.
+- Ancestro comun: se igualan los niveles de ambos empleados y se sube en paralelo hasta coincidir.
+
+## Salidas
+
+- Mensajes de confirmacion o de error.
+- Listas de empleados, nivel numerico y ancestro comun.
+
+## Decisiones de diseno
+
+- Cada Empleado conoce a su supervisor y a sus subordinados directos, lo que permite validar ciclos recorriendo la cadena.
+- Organizacion administra el mapa de empleados, los departamentos, los cargos y el director raiz; Main solo muestra el menu.
+- El nivel se calcula bajo demanda, evitando valores desactualizados al reasignar supervisores.
+- Las reglas de negocio lanzan IllegalArgumentException y Main las muestra como mensajes.
