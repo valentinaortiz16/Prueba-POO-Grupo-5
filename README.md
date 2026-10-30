@@ -41,7 +41,8 @@ Main
 
 ## Capturas
 
-<img width="1910" height="991" alt="{4DDB458F-7D6C-4C08-9737-FBA79D58E656}" src="https://github.com/user-attachments/assets/d3483357-878e-423c-b542-5c9ac9f57a50" />
+<img width="1910" height="991" alt="{4DDB458F-7D6C-4C08-9737-FBA79D58E656}" src="https://github.com/user-attachments/assets/301db001-1db7-4eea-b538-76a49cc77cda" />
+
 
 
 ## Distribucion de responsabilidades
