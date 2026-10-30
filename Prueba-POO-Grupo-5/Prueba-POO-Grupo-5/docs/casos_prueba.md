@@ -17,4 +17,4 @@ Datos base (opcion 8 del menu): A (director) supervisa a B; B supervisa a C.
 
 Los resultados obtenidos corresponden a una ejecucion real del programa. Vuelve a ejecutarlos
 tu en VS Code y anota una captura para el README.
-<img width="1600" height="897" alt="image" src="https://github.com/user-attachments/assets/6f006d3d-734e-459e-8665-7d7963889bbf" />
+
