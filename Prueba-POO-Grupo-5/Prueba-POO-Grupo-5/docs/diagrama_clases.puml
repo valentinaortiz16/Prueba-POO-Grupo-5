@@ -1,0 +1,40 @@
+@startuml
+class Main {
+  + main(args: String[]) : void
+}
+class Organizacion {
+  - empleados : ArrayList<Empleado>
+  - departamentos : ArrayList<Departamento>
+  - director : Empleado
+  + registrarDepartamento(nombre) : Departamento
+  + registrarEmpleado(id, nombre, cargo, salario, depto) : Empleado
+  + asignarSupervisor(idEmp, idSup) : void
+  + listarSubordinadosDirectos(id) : ArrayList<Empleado>
+  + calcularNivel(id) : int
+  + consultarCadenaSupervisores(id) : ArrayList<Empleado>
+  + listarEmpleadosPorDepartamento(nombre) : ArrayList<Empleado>
+}
+class Departamento {
+  - nombre : String
+  - empleados : ArrayList<Empleado>
+  + agregarEmpleado(e) : void
+}
+class Empleado {
+  - id : String
+  - nombre : String
+  - cargo : Cargo
+  - departamento : Departamento
+  - supervisor : Empleado
+  + setSupervisor(s) : void
+}
+class Cargo {
+  - nombre : String
+  - salarioBase : double
+}
+Main --> Organizacion
+Organizacion "1" o-- "*" Empleado
+Organizacion "1" o-- "*" Departamento
+Departamento "1" o-- "*" Empleado
+Empleado "1" *-- "1" Cargo
+Empleado "*" --> "0..1" Empleado : supervisor
+@enduml
