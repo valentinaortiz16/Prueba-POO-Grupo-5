@@ -5,7 +5,10 @@
 
 ## Integrantes
 - Sandra Jazmin Alulema Chato
-- (agregar nombres de los demas integrantes)
+- Anthony Daniel Armas Jaya
+- Joselyn Maribel Guaman Sagñay
+- Valeria Valentina Ortiz Mosquera 
+- Andrés Gabriel Vayas Masache
 
 ## Objetivo
 Aplicacion de consola en Java que representa la jerarquia de una empresa mediante clases y
@@ -49,10 +52,10 @@ autosupervision, ciclos, supervisor para el director raiz y opciones invalidas.
 ## Distribucion de responsabilidades
 | Integrante | Responsabilidad |
 |---|---|
-| (nombre 1) | `Cargo` y `Empleado` |
-| (nombre 2) | `Departamento` y registro en `Organizacion` |
-| (nombre 3) | Supervision, niveles, cadena y validaciones |
-| (nombre 4) | `Main`, documentacion y diagrama |
+| Andres Vayas | `Cargo` y `Empleado` |
+| Joselyn Guaman| `Departamento` y registro en `Organizacion` |
+| Valentina Ortiz| Supervision, niveles, cadena y validaciones |
+| Anthony Armas| `Main`, documentacion y diagrama |
 
 ## Documentacion
 - [Analisis](docs/analisis.md)
