@@ -52,10 +52,11 @@ autosupervision, ciclos, supervisor para el director raiz y opciones invalidas.
 ## Distribucion de responsabilidades
 | Integrante | Responsabilidad |
 |---|---|
-| Andres Vayas | `Cargo` y `Empleado` |
-| Joselyn Guaman| `Departamento` y registro en `Organizacion` |
-| Valentina Ortiz| Supervision, niveles, cadena y validaciones |
-| Anthony Armas| `Main`, documentacion y diagrama |
+| Andres Vayas | `Cargo` |
+| Sandra Alulema | `Empleado` y Diagrama |
+| Joselyn Guaman| `Departamento` |
+| Anthony Armas| `Organizacion`, documentacion |
+| Valentina Ortiz| `Main` |
 
 ## Documentacion
 - [Analisis](docs/analisis.md)
