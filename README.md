@@ -41,7 +41,8 @@ Main
 
 ## Capturas
 
-Agregar capturas de pantalla de la ejecucion en la carpeta docs/ y enlazarlas aqui.
+<img width="1910" height="991" alt="{4DDB458F-7D6C-4C08-9737-FBA79D58E656}" src="https://github.com/user-attachments/assets/d3483357-878e-423c-b542-5c9ac9f57a50" />
+
 
 ## Distribucion de responsabilidades
 
