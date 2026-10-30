@@ -1,40 +1,67 @@
+
+# Diagrama de clases UML
+
+```plantuml
 @startuml
+
 class Main {
   + main(args: String[]) : void
+  - mostrarMenu() : void
+  - ejecutar(opcion: int) : void
+  - leerEntero(mensaje: String) : int
+  - leerTexto(mensaje: String) : String
 }
+
 class Organizacion {
   - empleados : ArrayList<Empleado>
   - departamentos : ArrayList<Departamento>
+  - cargos : ArrayList<Cargo>
   - director : Empleado
-  + registrarDepartamento(nombre) : Departamento
-  + registrarEmpleado(id, nombre, cargo, salario, depto) : Empleado
+  + registrarEmpleado(id, nombre, departamento, cargo) : Empleado
+  + designarDirector(id) : void
   + asignarSupervisor(idEmp, idSup) : void
-  + listarSubordinadosDirectos(id) : ArrayList<Empleado>
-  + calcularNivel(id) : int
-  + consultarCadenaSupervisores(id) : ArrayList<Empleado>
-  + listarEmpleadosPorDepartamento(nombre) : ArrayList<Empleado>
+  + subordinadosDirectos(id) : List<Empleado>
+  + nivel(id) : int
+  + cadenaSupervisores(id) : List<Empleado>
+  + ancestroComun(a, b) : Empleado
+  + listarEmpleados() : List<Empleado>
+  + empleadosPorCargo(cargo) : List<Empleado>
 }
+
 class Departamento {
   - nombre : String
   - empleados : ArrayList<Empleado>
   + agregarEmpleado(e) : void
 }
+
+class Cargo {
+  - nombre : String
+  - salarioBase : double
+  - empleados : ArrayList<Empleado>
+}
+
 class Empleado {
-  - id : String
+  - id : int
   - nombre : String
   - cargo : Cargo
   - departamento : Departamento
   - supervisor : Empleado
+  - subordinados : ArrayList<Empleado>
   + setSupervisor(s) : void
+  + calcularNivel() : int
 }
-class Cargo {
-  - nombre : String
-  - salarioBase : double
-}
+
 Main --> Organizacion
+
 Organizacion "1" o-- "*" Empleado
 Organizacion "1" o-- "*" Departamento
-Departamento "1" o-- "*" Empleado
-Empleado "1" *-- "1" Cargo
+Organizacion "1" o-- "*" Cargo
+
+Departamento "1" -- "*" Empleado
+Cargo "1" -- "*" Empleado
+
 Empleado "*" --> "0..1" Empleado : supervisor
+Empleado "1" -- "*" Empleado : subordinados
+
 @enduml
+```
