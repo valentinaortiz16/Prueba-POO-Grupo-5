@@ -2,9 +2,11 @@
 
 ## Integrantes
 
-- Integrante 1
-- Integrante 2
-- Integrante 3
+- Alulema Chato Sandra Jazmin  
+- Armas Jaya Anthony Daniel
+- Guaman Sagñay Joselyn Maribel
+- Ortiz Mosquera Valeria Valentina
+- Vayas Masache Andres Gabriel 
 
 ## Objetivo
 
