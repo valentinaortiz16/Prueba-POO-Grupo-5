@@ -45,9 +45,11 @@ Agregar capturas de pantalla de la ejecucion en la carpeta docs/ y enlazarlas aq
 
 ## Distribucion de responsabilidades
 
-- Integrante 1: clase Empleado y validaciones.
-- Integrante 2: clases Departamento, Cargo y Organizacion.
-- Integrante 3: Main, pruebas y documentacion.
+- Alulema Chato Sandra Jazmin : diagrama_clases / Empleado.java  
+- Armas Jaya Anthony Daniel : Departamento.java
+- Guaman Sagñay Joselyn Maribel : análisis / Organización.java
+- Ortiz Mosquera Valeria Valentina : casos_prueba / Main.java
+- Vayas Masache Andres Gabriel : Cargo.java
 
 ## Referencia
 
